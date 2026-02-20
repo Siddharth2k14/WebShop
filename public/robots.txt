@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://web-shop-olive.vercel.app/sitemap.xml
