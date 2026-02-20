@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
     return (
@@ -24,19 +25,19 @@ const Home = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="#pricing"
+                        <NavLink
+                            to="/pricing"
                             className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:shadow-xl transition-all transform hover:scale-105"
                         >
                             View Pricing
                             <ArrowRight className="w-5 h-5" />
-                        </a>
-                        <a
-                            href="#contact"
+                        </NavLink>
+                        <NavLink
+                            to="/contact"
                             className="inline-flex items-center justify-center gap-2 bg-white text-slate-700 px-8 py-4 rounded-lg border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 transition-all"
                         >
                             Contact Us
-                        </a>
+                        </NavLink>
                     </div>
 
                     <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-slate-600">

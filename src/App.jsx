@@ -5,17 +5,21 @@ import Pricing from "./component/Pricing";
 import TechStack from "./component/TechStack";
 import HowItWorks from "./component/HowItWorks";
 import Contact from "./component/Contact";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <NavBar />
-      <Home />
-      <Feature />
-      <Pricing />
-      <TechStack />
-      <HowItWorks />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/feature" element={<Feature />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/techstack" element={<TechStack />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
 
       <footer className="bg-slate-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">

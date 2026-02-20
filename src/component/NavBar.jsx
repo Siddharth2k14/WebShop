@@ -2,6 +2,7 @@ import { Box, Button, Typography, IconButton } from "@mui/material";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     const [open, setOpen] = useState(false);
@@ -18,7 +19,7 @@ const NavBar = () => {
                 </Box>
 
                 <Typography className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    <a href="#home">WebShop Agency</a>
+                    <NavLink to="/home">WebShop Agency</NavLink>
                 </Typography>
             </Box>
 
@@ -26,10 +27,10 @@ const NavBar = () => {
             <Box className="hidden md:flex items-center gap-12">
 
                 <Box className="flex items-center gap-8 text-gray-600 font-medium">
-                    <a href="#feature" className="hover:text-black transition">Features</a>
-                    <a href="#pricing" className="hover:text-black transition">Pricing</a>
-                    <a href="#techstack" className="hover:text-black transition">Tech Stack</a>
-                    <a href="#howitworks" className="hover:text-black transition">How It Works</a>
+                    <NavLink to="/feature" className="hover:text-black transition">Features</NavLink>
+                    <NavLink to="/pricing" className="hover:text-black transition">Pricing</NavLink>
+                    <NavLink to="/techstack" className="hover:text-black transition">Tech Stack</NavLink>
+                    <NavLink to="/howitworks" className="hover:text-black transition">How It Works</NavLink>
                 </Box>
 
                 <Button
@@ -37,7 +38,7 @@ const NavBar = () => {
                     sx={{ textTransform: "none", color: "#ffffff" }}
                     className="px-6 py-2 rounded-2xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90"
                 >
-                    <a href="#contact">Get Started</a>
+                    <NavLink to="/contact">Get Started</NavLink>
                 </Button>
             </Box>
 
@@ -53,17 +54,17 @@ const NavBar = () => {
             {open && (
                 <Box className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden z-50">
 
-                    <a href="#feature" onClick={() => setOpen(false)}>Features</a>
-                    <a href="#pricing" onClick={() => setOpen(false)}>Pricing</a>
-                    <a href="#techstack" onClick={() => setOpen(false)}>Tech Stack</a>
-                    <a href="#howitworks" onClick={() => setOpen(false)}>How It Works</a>
+                    <NavLink to="/feature" onClick={() => setOpen(false)}>Features</NavLink>
+                    <NavLink to="/pricing" onClick={() => setOpen(false)}>Pricing</NavLink>
+                    <NavLink to="/techstack" onClick={() => setOpen(false)}>Tech Stack</NavLink>
+                    <NavLink to="/howitworks" onClick={() => setOpen(false)}>How It Works</NavLink>
 
                     <Button
                         disableElevation
                         sx={{ textTransform: "none", color: "#ffffff" }}
                         className="px-6 py-2 rounded-2xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90"
                     >
-                        <a href="#contact">Get Started</a>
+                        <NavLink to="/contact">Get Started</NavLink>
                     </Button>
                 </Box>
             )}

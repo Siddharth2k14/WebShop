@@ -1,4 +1,5 @@
 import { CheckCircle2, Globe, Database } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const Pricing = () => {
     const plans = [
@@ -42,7 +43,7 @@ const Pricing = () => {
     ];
 
     return (
-        <section id="pricing" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
@@ -94,15 +95,15 @@ const Pricing = () => {
                                         ))}
                                     </ul>
 
-                                    <a
-                                        href="#contact"
+                                    <NavLink
+                                        to="/contact"
                                         className={`block text-center px-6 py-3 rounded-lg font-semibold transition-all ${plan.popular
                                             ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg'
                                             : 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:shadow-lg'
                                             }`}
                                     >
                                         Get Started
-                                    </a>
+                                    </NavLink>
                                 </div>
                             </div>
                         );
