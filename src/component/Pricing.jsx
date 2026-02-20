@@ -5,25 +5,25 @@ const Pricing = () => {
     const plans = [
         {
             name: 'Static Website',
-            price: '1,000',
+            price: '999',
             icon: Globe,
             description: 'Perfect for small shops and businesses',
             features: [
                 'Beautiful responsive design',
                 'Up to 5 pages',
                 'Contact form',
-                'Google Maps integration',
                 'Mobile-friendly',
                 'Free hosting included',
                 'Free maintenance',
-                'Content updates as needed'
+                'Content updates as needed',
+                'Google Maps integration (Optional)'
             ],
             techStack: 'HTML, CSS, JavaScript',
             gradient: 'from-blue-500 to-cyan-500'
         },
         {
             name: 'Full-Stack Website',
-            price: '2,000',
+            price: '1,999',
             icon: Database,
             description: 'For businesses needing advanced features',
             features: [
@@ -32,9 +32,9 @@ const Pricing = () => {
                 'Database integration',
                 'User authentication',
                 'Admin dashboard',
-                'Inventory management',
-                'Order tracking system',
-                'Advanced analytics'
+                'Inventory management (Optional)',
+                'Order tracking system (Optional)',
+                'Advanced analytics (Optional)'
             ],
             techStack: 'MERN Stack (MongoDB, Express, React, Node.js)',
             gradient: 'from-purple-500 to-pink-500',
