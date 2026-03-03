@@ -19,7 +19,7 @@ const Contact = () => {
             `Name: ${name}\nBusiness Name: ${businessName}\nEmail: ${email}\nPhone: ${phone}\nWebsite Type: ${websiteType}\n\nMessage:\n${message}`
         );
 
-        window.location.href = `mailto:sid.webd.singh.04@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:webshopagency04@gmail.com?subject=${subject}&body=${body}`;
     };
 
     return (
@@ -44,8 +44,8 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <p className="font-semibold mb-1">Email</p>
-                                        <a href="mailto:sid.webd.singh.04@gmail.com" className="text-slate-600 hover:text-blue-600">
-                                            sid.webd.singh.04@gmail.com
+                                        <a href="mailto:webshopagency04@gmail.com" className="text-slate-600 hover:text-blue-600">
+                                            webshopagency04@gmail.com
                                         </a>
                                     </div>
                                 </div>

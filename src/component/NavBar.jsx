@@ -12,11 +12,11 @@ const NavBar = () => {
 
             {/* Logo Section */}
             <Box className="flex items-center gap-3">
-                <Box className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600">
-                    <Typography className="text-white text-lg md:text-xl font-bold">
-                        {"</>"}
-                    </Typography>
-                </Box>
+                <img
+                    src="https://res.cloudinary.com/dhgojtmbf/image/upload/v1772568298/logo_lnrgcs.avif"
+                    alt="WebShop Agency Logo"
+                    className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                />
 
                 <Typography className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     <NavLink to="/home">WebShop Agency</NavLink>
@@ -34,11 +34,13 @@ const NavBar = () => {
                 </Box>
 
                 <Button
+                    component={NavLink}
+                    to="/contact"
                     disableElevation
                     sx={{ textTransform: "none", color: "#ffffff" }}
                     className="px-6 py-2 rounded-2xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90"
                 >
-                    <NavLink to="/contact">Get Started</NavLink>
+                    Get Started
                 </Button>
             </Box>
 
