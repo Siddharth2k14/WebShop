@@ -19,7 +19,7 @@ const TechStack = () => {
     return (
         <>
             <Helmet>
-                <title>MERN Stack Website Technology | WebShop Agency</title>
+                <title>Tech Stack Website | WebShop Agency</title>
 
                 <meta
                     name="description"
