@@ -137,8 +137,8 @@ const Contact = () => {
                                     name="websiteType"
                                     className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 >
-                                    <option>Static Website (₹1,000/month)</option>
-                                    <option>Full-Stack Website (₹2,000/month)</option>
+                                    <option>Static Website (₹999/month)</option>
+                                    <option>Full-Stack Website (₹1,999/month)</option>
                                     <option>Not sure yet</option>
                                 </select>
                             </div>
