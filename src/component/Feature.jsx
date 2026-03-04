@@ -1,4 +1,5 @@
 import { Layers, Rocket, Shield, Zap } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const Feature = () => {
 
@@ -26,34 +27,60 @@ const Feature = () => {
     ];
 
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto">
-                        We make having a professional online presence simple and affordable for local businesses
-                    </p>
-                </div>
+        <>
+            <Helmet>
+                <title>Website Features for Local Businesses | WebShop Agency</title>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {features.map((feature, index) => {
-                        const Icon = feature.icon;
-                        return (
-                            <div
-                                key={index}
-                                className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-xl transition-all transform hover:-translate-y-1"
-                            >
-                                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                                    <Icon className="w-6 h-6 text-white" />
+                <meta
+                    name="description"
+                    content="Explore the features of WebShop Agency websites including fast launch, worry-free maintenance, scalable solutions, and affordable rental pricing."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://web-shop-olive.vercel.app/feature"
+                />
+            </Helmet>
+
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                            Why Choose WebShop Agency
+                        </h1>
+
+                        <p className="text-slate-600 max-w-2xl mx-auto">
+                            We make having a professional online presence simple and affordable for local businesses
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {features.map((feature, index) => {
+                            const Icon = feature.icon;
+
+                            return (
+                                <div
+                                    key={index}
+                                    className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-xl transition-all transform hover:-translate-y-1"
+                                >
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                                        <Icon className="w-6 h-6 text-white" />
+                                    </div>
+
+                                    <h3 className="text-xl font-semibold mb-2">
+                                        {feature.title}
+                                    </h3>
+
+                                    <p className="text-slate-600">
+                                        {feature.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                                <p className="text-slate-600">{feature.description}</p>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     )
 };
 
