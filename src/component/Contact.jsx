@@ -37,6 +37,19 @@ const Contact = () => {
                     rel="canonical"
                     href="https://web-shop-olive.vercel.app/contact"
                 />
+
+                <script type="application/ld+json">
+                    {`
+{
+ "@context": "https://schema.org",
+ "@type": "ContactPoint",
+ "telephone": "+91 8354878525",
+ "contactType": "customer service",
+ "email": "webshopagency04@gmail.com",
+ "areaServed": "IN"
+}
+`}
+                </script>
             </Helmet>
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4">

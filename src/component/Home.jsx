@@ -20,6 +20,35 @@ const Home = () => {
                 <meta property="og:title" content="WebShop Agency - Websites for Local Businesses" />
                 <meta property="og:description" content="Affordable website rental service for local businesses. No upfront cost, monthly plans, and full maintenance." />
                 <meta property="og:type" content="website" />
+
+                <script type="application/ld+json">
+                    {`
+                        {
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "name": "WebShop Agency",
+                        "url": "https://web-shop-olive.vercel.app",
+                        "logo": "https://res.cloudinary.com/dhgojtmbf/image/upload/v1772568298/logo_lnrgcs.avif",
+                        "email": "webshopagency04@gmail.com",
+                        "telephone": "+91 8354878525",
+                        "sameAs": [
+                        "https://www.linkedin.com/company/web-shop-agency/"
+                        ]
+                        }
+                    `}
+                </script>
+
+                <script type="application/ld+json">
+                    {`
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "WebShop Agency",
+ "url": "https://web-shop-olive.vercel.app"
+}
+`}
+                </script>
+
             </Helmet>
 
             <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-20 md:py-32 overflow-hidden">

@@ -57,6 +57,30 @@ const Pricing = () => {
                     rel="canonical"
                     href="https://web-shop-olive.vercel.app/pricing"
                 />
+
+                <script type="application/ld+json">
+                    {`
+                        {
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Website Development for Local Businesses",
+                        "provider": {
+                        "@type": "Organization",
+                        "name": "WebShop Agency"
+                        },
+                        "areaServed": {
+                        "@type": "Country",
+                        "name": "India"
+                        },
+                        "description": "Affordable website rental services for local businesses including design, hosting, and maintenance.",
+                        "offers": {
+                        "@type": "Offer",
+                        "price": "999",
+                        "priceCurrency": "INR"
+                        }
+                        }
+                    `}
+                </script>
             </Helmet>
 
             <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
