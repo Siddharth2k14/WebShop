@@ -19,7 +19,7 @@ const NavBar = () => {
                 />
 
                 <Typography className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    <NavLink to="/home">WebShop Agency</NavLink>
+                    <NavLink to="/home">Web Shop Agency</NavLink>
                 </Typography>
             </Box>
 
