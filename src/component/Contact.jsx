@@ -1,7 +1,18 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
 
 const Contact = () => {
+    const location = useLocation();
+
+    const selectedPlan = location.state?.selectedPlan;
+    const selectedAddOns = location.state?.selectedAddOns || [];
+    const selectedPlanPrice = selectedPlan?.selectedPrice || selectedPlan?.price_1;
+    const selectedMonthlyPrice = selectedPlan?.selectedMonthlyPrice || selectedPlan?.monthlyPrice_1;
+    const selectedAddOnsLabel = selectedAddOns.length
+        ? selectedAddOns.map(a => a.quantity > 1 ? `${a.name} x${a.quantity}` : a.name).join(', ')
+        : 'None';
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -16,8 +27,32 @@ const Contact = () => {
 
         // Create mailto link with form data
         const subject = encodeURIComponent(`New Website Inquiry from ${businessName}`);
+        const addOnsText = selectedAddOns.length
+            ? selectedAddOns.map(a => {
+                const qty = a.quantity || 1;
+                const price = a.selectedPrice || a.price_1;
+                const line = qty > 1
+                    ? `- ${a.name} x${qty} (₹${price} each, ₹${parseInt(price.replace(",", "")) * qty})`
+                    : `- ${a.name} (₹${price})`;
+                return line;
+            }).join('\n')
+            : "None";
+
         const body = encodeURIComponent(
-            `Name: ${name}\nBusiness Name: ${businessName}\nEmail: ${email}\nPhone: ${phone}\nWebsite Type: ${websiteType}\n\nMessage:\n${message}`
+            `Name: ${name}
+Business Name: ${businessName}
+Email: ${email}
+Phone: ${phone}
+
+Selected Plan: ${selectedPlan?.name || websiteType}
+Selected Price: ₹${selectedPlanPrice || 'N/A'}
+Selected Monthly Price: ₹${selectedMonthlyPrice || 'N/A'}
+
+Add-ons:
+${addOnsText}
+
+Message:
+${message}`
         );
 
         window.location.href = `mailto:webshopagency04@gmail.com?subject=${subject}&body=${body}`;
@@ -163,12 +198,24 @@ const Contact = () => {
                                     <label className="block text-slate-700 mb-2">Website Type</label>
                                     <select
                                         name="websiteType"
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        defaultValue={selectedPlan?.name || "Not sure yet"}
+                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg"
                                     >
-                                        <option>Static Website (₹999/month)</option>
-                                        <option>Full-Stack Website (₹1,999/month)</option>
+                                        <option>Basic Website Plan</option>
+                                        <option>Business Website / Full Stack Plan</option>
                                         <option>Not sure yet</option>
                                     </select>
+                                </div>
+
+                                <div>
+                                    <label className="block text-slate-700 mb-2">Add-ons</label>
+                                    <input
+                                        type="text"
+                                        name="addOns"
+                                        readOnly
+                                        value={selectedAddOnsLabel}
+                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg"
+                                    />
                                 </div>
 
                                 <div>
