@@ -1,4 +1,4 @@
-import { MessageSquare, Palette, Code2, Rocket, Settings } from 'lucide-react';
+import { MessageSquare, Palette, Code2, Rocket, Settings, QrCode } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 
 const HowItWorks = () => {
@@ -16,7 +16,12 @@ const HowItWorks = () => {
         {
             icon: Rocket,
             title: 'Launch',
-            description: 'Your website goes live with hosting included. Ready in 3-5 days!'
+            description: 'We deploy your website with hosting and connect it to your QR code for easy customer access.'
+        },
+        {
+            icon: QrCode,
+            title: 'QR Integration',
+            description: 'We create a custom QR code for your business so customers can instantly access your website.'
         },
         {
             icon: Settings,
@@ -50,7 +55,7 @@ const HowItWorks = () => {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div className="grid md:grid-rows-5 gap-8 max-w-6xl mx-auto">
                         {steps.map((step, index) => {
                             const Icon = step.icon;
                             return (
@@ -67,7 +72,7 @@ const HowItWorks = () => {
                                     </div>
 
                                     {index < steps.length - 1 && (
-                                        <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600"></div>
+                                        <div className="hidden md:block absolute left-1/2 top-full w-0.5 h-8 bg-gradient-to-b from-blue-500 to-purple-600"></div>
                                     )}
                                 </div>
                             );
