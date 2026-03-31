@@ -20,9 +20,8 @@ const Pricing = () => {
     const plans = [
         {
             name: 'Basic Website Plan',
-            price_1: '2,999',
-            monthlyPrice_1: '499',
-            monthlyPrice_2: '799',
+            price: '2,999',
+            monthlyPrice: '799',
             icon: Globe,
             description: 'Perfect for small businesses and local shops',
             features: [
@@ -38,10 +37,8 @@ const Pricing = () => {
         },
         {
             name: 'Business Website / Full Stack Plan',
-            price_1: '9,999',
-            price_2: '14,999',
-            monthlyPrice_1: '999',
-            monthlyPrice_2: '1,999',
+            price: '14,999',
+            monthlyPrice: '1,999',
             icon: Database,
             description: 'Best for growing businesses needing advanced features',
             features: [
@@ -61,21 +58,19 @@ const Pricing = () => {
     const addOns = [
         {
             name: 'Inventory System (setup)',
-            price_1: '2,000',
-            price_2: '5,000'
+            price: '5,000'
         },
         {
             name: 'Order Tracking',
-            price_1: '2,000'
+            price: '2,000'
         },
         {
             name: 'Advanced Analytics',
-            price_1: '1,500'
+            price: '1,500'
         },
         {
             name: 'Extra Pages (per page)',
-            price_1: '300',
-            price_2: '500'
+            price: '500'
         }
     ];
 
@@ -193,68 +188,15 @@ const Pricing = () => {
 
                                         <div className="flex items-baseline mb-6">
                                             <span className="text-4xl font-bold">
-                                                ₹{plan.price_1}
-                                                {plan.price_2 && ` - ₹${plan.price_2}`}
+                                                ₹{plan.price}
                                             </span>
                                             <span className="text-slate-600 ml-2"> one time</span>
                                         </div>
 
-                                        {plan.price_2 && (
-                                            <div className="mb-3">
-                                                <p className="text-sm text-blue-600">
-                                                    Selected one-time price: ₹{chosenPriceForPlan}
-                                                </p>
-                                            </div>
-                                        )}
-
-                                        {plan.price_2 && (
-                                            <div className="mb-4">
-                                                <p className="text-sm text-slate-500 mb-2">Choose one-time price</p>
-                                                <div className="flex gap-2">
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => setPlanPriceSelection((prev) => ({ ...prev, [plan.name]: plan.price_1 }))}
-                                                        className={`px-3 py-1 rounded-lg border ${chosenPriceForPlan === plan.price_1 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                    >
-                                                        ₹{plan.price_1}
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => setPlanPriceSelection((prev) => ({ ...prev, [plan.name]: plan.price_2 }))}
-                                                        className={`px-3 py-1 rounded-lg border ${chosenPriceForPlan === plan.price_2 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                    >
-                                                        ₹{plan.price_2}
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
-
                                         <div className="flex items-baseline mb-6">
-                                            <span className="text-2xl font-bold">₹{plan.monthlyPrice_1} - ₹{plan.monthlyPrice_2}</span>
+                                            <span className="text-2xl font-bold">₹{plan.monthlyPrice}</span>
                                             <span className="text-slate-600 ml-2">/month</span>
                                         </div>
-
-                                        {plan.monthlyPrice_2 && (
-                                            <div className="mb-4">
-                                                <p className="text-sm text-slate-500 mb-2">Choose monthly price</p>
-                                                <div className="flex gap-2">
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => setPlanMonthlySelection((prev) => ({ ...prev, [plan.name]: plan.monthlyPrice_1 }))}
-                                                        className={`px-3 py-1 rounded-lg border ${planMonthlySelection[plan.name] === plan.monthlyPrice_1 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                    >
-                                                        ₹{plan.monthlyPrice_1}
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => setPlanMonthlySelection((prev) => ({ ...prev, [plan.name]: plan.monthlyPrice_2 }))}
-                                                        className={`px-3 py-1 rounded-lg border ${planMonthlySelection[plan.name] === plan.monthlyPrice_2 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                    >
-                                                        ₹{plan.monthlyPrice_2}
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
 
                                         <div className="bg-slate-50 rounded-lg p-3 mb-6">
                                             <p className="text-sm text-slate-600">
@@ -270,28 +212,6 @@ const Pricing = () => {
                                                 </li>
                                             ))}
                                         </ul>
-
-                                        {selectedPlan?.name === plan.name && plan.price_2 && (
-                                            <div className="mb-4">
-                                                <p className="text-sm text-slate-500 mb-2">Choose plan price:</p>
-                                                <div className="flex gap-2">
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => setSelectedPlanPrice(plan.price_1)}
-                                                        className={`px-3 py-1 rounded-lg border ${selectedPlanPrice === plan.price_1 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                    >
-                                                        ₹{plan.price_1}
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => setSelectedPlanPrice(plan.price_2)}
-                                                        className={`px-3 py-1 rounded-lg border ${selectedPlanPrice === plan.price_2 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                    >
-                                                        ₹{plan.price_2}
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
 
                                         <Button
                                             onClick={() => handleSelectPlan(plan)}

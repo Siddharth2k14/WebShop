@@ -91,7 +91,7 @@ const Home = () => {
                         <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-slate-600">
                             <div className="flex items-center gap-2">
                                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                <span>No Upfront Cost</span>
+                                <span>Less Upfront Cost</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -99,7 +99,7 @@ const Home = () => {
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                <span>Free Maintenance</span>
+                                <span>Worry-Free Maintenance</span>
                             </div>
                         </div>
                     </div>

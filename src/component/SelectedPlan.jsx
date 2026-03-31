@@ -6,14 +6,14 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
         return null;
     }
 
-    const effectivePrice = selectedPlanPrice || selectedPlan.price_1;
-    const effectiveMonthlyPrice = selectedMonthlyPrice || selectedPlan.monthlyPrice_1;
+    const effectivePrice = selectedPlanPrice || selectedPlan.price;
+    const effectiveMonthlyPrice = selectedMonthlyPrice || selectedPlan.monthlyPrice;
 
     const getTotalPrice = () => {
         const basePrice = parseInt(effectivePrice.replace(",", ""));
 
         const addOnTotal = selectedAddOns.reduce((sum, item) => {
-            const priceValue = item?.selectedPrice || item?.price_1;
+            const priceValue = item?.selectedPrice || item?.price;
             const quantity = item?.quantity || 1;
             const price = priceValue ? parseInt(priceValue.replace(",", "")) : 0;
             return sum + (isNaN(price) ? 0 : price * quantity);
@@ -45,7 +45,7 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
                     {selectedAddOns.map((item, i) => (
                         <li key={i}>
                             {item.name}
-                            {item.quantity > 1 && ` x${item.quantity}`} - ₹{item.selectedPrice || item.price_1}
+                            {item.quantity > 1 && ` x${item.quantity}`} - ₹{item.selectedPrice || item.price}
                             {item.quantity > 1 && ` each`}
                         </li>
                     ))}
@@ -61,19 +61,16 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
                 state={{
                     selectedPlan: {
                         name: selectedPlan.name,
-                        price_1: selectedPlan.price_1,
-                        price_2: selectedPlan.price_2,
+                        price: selectedPlan.price,
                         selectedPrice: effectivePrice,
-                        monthlyPrice_1: selectedPlan.monthlyPrice_1,
-                        monthlyPrice_2: selectedPlan.monthlyPrice_2,
+                        monthlyPrice: selectedPlan.monthlyPrice,
                         selectedMonthlyPrice: effectiveMonthlyPrice,
                         popular: selectedPlan.popular || false
                     },
                     selectedAddOns: selectedAddOns.map((addOn) => ({
                         name: addOn.name,
-                        price_1: addOn.price_1,
-                        price_2: addOn.price_2,
-                        selectedPrice: addOn.selectedPrice || addOn.price_1,
+                        price_1: addOn.price,
+                        selectedPrice: addOn.selectedPrice || addOn.price,
                         quantity: addOn.quantity || 1
                     }))
                 }}

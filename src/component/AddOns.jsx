@@ -39,55 +39,27 @@ const AddOns = ({ addOns, selectedPlan, isFullStack, selectedAddOns, addOnPriceS
                                     </h3>
 
                                     <p className="text-blue-600 font-bold mb-2">
-                                        {addOn.price_2
-                                            ? `Selected: ₹${addOnPriceSelection[addOn.name] || addOn.price_1}`
-                                            : `₹${addOn.price_1}`
+                                        {addOn.price
+                                            ? `Selected: ₹${addOnPriceSelection[addOn.name] || addOn.price}`
+                                            : `₹${addOn.price}`
                                         }
                                     </p>
 
-                                    {addOn.price_2 && (
-                                        <>
-                                            <div className="flex gap-2 mb-2">
-                                                <button
-                                                    type="button"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        setAddOnPriceSelection((prev) => ({ ...prev, [addOn.name]: addOn.price_1 }));
-                                                        setSelectedAddOns((prev) => prev.map(item => item.name === addOn.name ? { ...item, selectedPrice: addOn.price_1 } : item));
-                                                    }}
-                                                    className={`px-2 py-1 rounded-lg border ${addOnPriceSelection[addOn.name] === addOn.price_1 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                >
-                                                    ₹{addOn.price_1}
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        setAddOnPriceSelection((prev) => ({ ...prev, [addOn.name]: addOn.price_2 }));
-                                                        setSelectedAddOns((prev) => prev.map(item => item.name === addOn.name ? { ...item, selectedPrice: addOn.price_2 } : item));
-                                                    }}
-                                                    className={`px-2 py-1 rounded-lg border ${addOnPriceSelection[addOn.name] === addOn.price_2 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-300'}`}
-                                                >
-                                                    ₹{addOn.price_2}
-                                                </button>
-                                            </div>
-                                            {addOn.name.toLowerCase().includes('extra page') && (
-                                                <div className="mt-2 flex items-center gap-2">
-                                                    <label className="text-sm text-slate-600">Pages:</label>
-                                                    <input
-                                                        type="number"
-                                                        min={1}
-                                                        value={addOnQuantitySelection[addOn.name] || 1}
-                                                        onChange={(e) => {
-                                                            const qty = Math.max(1, Number(e.target.value));
-                                                            setAddOnQuantitySelection((prev) => ({ ...prev, [addOn.name]: qty }));
-                                                            setSelectedAddOns((prev) => prev.map(item => item.name === addOn.name ? { ...item, quantity: qty } : item));
-                                                        }}
-                                                        className="w-20 px-2 py-1 border border-slate-300 rounded-lg"
-                                                    />
-                                                </div>
-                                            )}
-                                        </>
+                                    {addOn.name.toLowerCase().includes('extra page') && (
+                                        <div className="mt-2 flex items-center gap-2">
+                                            <label className="text-sm text-slate-600">Pages:</label>
+                                            <input
+                                                type="number"
+                                                min={1}
+                                                value={addOnQuantitySelection[addOn.name] || 1}
+                                                onChange={(e) => {
+                                                    const qty = Math.max(1, Number(e.target.value));
+                                                    setAddOnQuantitySelection((prev) => ({ ...prev, [addOn.name]: qty }));
+                                                    setSelectedAddOns((prev) => prev.map(item => item.name === addOn.name ? { ...item, quantity: qty } : item));
+                                                }}
+                                                className="w-20 px-2 py-1 border border-slate-300 rounded-lg"
+                                            />
+                                        </div>
                                     )}
 
                                     <p className="text-sm text-slate-500 mt-1">

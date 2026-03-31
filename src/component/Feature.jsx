@@ -12,12 +12,12 @@ const Feature = () => {
         {
             icon: Shield,
             title: 'Worry-Free Maintenance',
-            description: 'We handle all updates, hosting, and technical issues. You just tell us what to change.'
+            description: 'We handle all updates, hosting, and technical issues. You just tell us what to change (Charges apply).'
         },
         {
             icon: Zap,
             title: 'Rental Model',
-            description: 'Pay monthly with no large upfront investment. Cancel anytime with no hidden fees.'
+            description: 'Pay monthly with no large upfront investment. Affordable for local businesses.'
         },
         {
             icon: Layers,

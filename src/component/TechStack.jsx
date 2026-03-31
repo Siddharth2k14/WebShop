@@ -1,18 +1,56 @@
 import { Code2 } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { FaHtml5, FaCss3, FaJs, FaNodeJs } from 'react-icons/fa';
+import { SiMongodb, SiExpress } from 'react-icons/si';
+import { RiReactjsFill } from 'react-icons/ri';
+import { TbBrandNextjs } from 'react-icons/tb';
 
 const TechStack = () => {
     const technologies = {
         static: [
-            { name: 'HTML5', color: 'from-orange-500 to-red-500' },
-            { name: 'CSS3', color: 'from-blue-500 to-blue-600' },
-            { name: 'JavaScript', color: 'from-yellow-400 to-yellow-500' }
+            {
+                logo: FaHtml5,
+                name: 'HTML5', 
+                color: 'from-orange-500 to-red-500' 
+            },
+            { 
+                logo: FaCss3,
+                name: 'CSS3', 
+                color: 'from-blue-500 to-blue-600' 
+            },
+            { 
+                logo: FaJs,
+                name: 'JavaScript', 
+                color: 'from-yellow-400 to-yellow-500' 
+
+            }
         ],
         fullStack: [
-            { name: 'MongoDB', color: 'from-green-500 to-green-600' },
-            { name: 'Express.js', color: 'from-gray-600 to-gray-700' },
-            { name: 'React', color: 'from-cyan-400 to-blue-500' },
-            { name: 'Node.js', color: 'from-green-600 to-green-700' }
+            { 
+                logo: SiMongodb,
+                name: 'MongoDB', 
+                color: 'from-green-500 to-green-600' 
+            },
+            { 
+                logo: SiExpress,
+                name: 'Express.js', 
+                color: 'from-gray-600 to-gray-700' 
+            },
+            { 
+                logo: RiReactjsFill,
+                name: 'React', 
+                color: 'from-cyan-400 to-blue-500' 
+            },
+            { 
+                logo: FaNodeJs,
+                name: 'Node.js', 
+                color: 'from-green-600 to-green-700' 
+            },
+            {
+                logo: TbBrandNextjs,
+                name: 'Next.js',
+                color: 'from-gray-800 to-gray-900'
+            }
         ]
     };
 
@@ -52,8 +90,9 @@ const TechStack = () => {
                                 {technologies.static.map((tech, index) => (
                                     <div
                                         key={index}
-                                        className={`bg-gradient-to-r ${tech.color} text-white px-6 py-4 rounded-lg font-semibold text-center transform hover:scale-105 transition-all shadow-md`}
+                                        className={`bg-gradient-to-r ${tech.color} text-white px-6 py-4 rounded-lg font-bold text-center transform hover:scale-105 transition-all shadow-md flex flex-row justify-center gap-2`}
                                     >
+                                        {tech.logo && <tech.logo className="w-6 h-6" />}
                                         {tech.name}
                                     </div>
                                 ))}
@@ -73,8 +112,9 @@ const TechStack = () => {
                                 {technologies.fullStack.map((tech, index) => (
                                     <div
                                         key={index}
-                                        className={`bg-gradient-to-r ${tech.color} text-white px-6 py-4 rounded-lg font-semibold text-center transform hover:scale-105 transition-all shadow-md`}
+                                        className={`bg-gradient-to-r ${tech.color} text-white px-6 py-4 rounded-lg font-bold text-center transform hover:scale-105 transition-all shadow-md flex flex-row justify-center gap-2`}
                                     >
+                                        {tech.logo && <tech.logo className="w-6 h-6" />}
                                         {tech.name}
                                     </div>
                                 ))}
