@@ -78,7 +78,7 @@ ${message}`
 {
  "@context": "https://schema.org",
  "@type": "ContactPoint",
- "telephone": "+91 8354878525",
+ "telephone": "+91 9555204672",
  "contactType": "customer service",
  "email": "webshopagency04@gmail.com",
  "areaServed": "IN"

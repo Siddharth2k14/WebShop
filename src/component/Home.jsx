@@ -30,7 +30,7 @@ const Home = () => {
                         "url": "https://web-shop-olive.vercel.app",
                         "logo": "https://res.cloudinary.com/dhgojtmbf/image/upload/v1772568298/logo_lnrgcs.avif",
                         "email": "webshopagency04@gmail.com",
-                        "telephone": "+91 8354878525",
+                        "telephone": "+91 9555204672",
                         "sameAs": [
                         "https://www.linkedin.com/company/web-shop-agency/"
                         ]
