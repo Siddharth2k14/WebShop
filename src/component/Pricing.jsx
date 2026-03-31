@@ -42,12 +42,11 @@ const Pricing = () => {
             icon: Database,
             description: 'Best for growing businesses needing advanced features',
             features: [
-                'Admin dashboard',
-                'Product/service management',
-                'Order or inquiry system',
-                'Authentication system (if needed)',
-                'Hosting included',
-                'Monthly maintenance included'
+                "Manage products/services easily from dashboard",
+                "Receive and track orders or customer inquiries",
+                "Secure login system for admin/users",
+                "Website hosting included (no extra cost)",
+                "Monthly updates & maintenance handled"
             ],
             techStack: 'MERN Stack (MongoDB, Express, React, Node.js)',
             gradient: 'from-purple-500 to-pink-500',
