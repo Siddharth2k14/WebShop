@@ -32,7 +32,7 @@ const Pricing = () => {
                 'Hosting included',
                 'Monthly maintenance included'
             ],
-            techStack: 'HTML, CSS, JavaScript / Next.js',
+            techStack: 'HTML, CSS, JavaScript',
             gradient: 'from-blue-500 to-cyan-500'
         },
         {
@@ -48,7 +48,7 @@ const Pricing = () => {
                 "Website hosting included (no extra cost)",
                 "Monthly updates & maintenance handled"
             ],
-            techStack: 'MERN Stack (MongoDB, Express, React, Node.js)',
+            techStack: 'MERN Stack (MongoDB, Express, React, Node.js) / Next.js',
             gradient: 'from-purple-500 to-pink-500',
             popular: true
         }
