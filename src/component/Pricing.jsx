@@ -15,11 +15,12 @@ const Pricing = () => {
     const [addOnPriceSelection, setAddOnPriceSelection] = useState({});
     const [addOnQuantitySelection, setAddOnQuantitySelection] = useState({});
     const [selectedAddOns, setSelectedAddOns] = useState([]);
-    const isFullStack = selectedPlan?.name.includes("Full Stack");
+    const isBusiness = selectedPlan?.name.includes("Business Plan");
 
     const plans = [
         {
-            name: 'Basic Website Plan',
+            name: 'Basic Plan',
+            site: 'Static Site',
             price: '2,999',
             monthlyPrice: '799',
             icon: Globe,
@@ -36,7 +37,8 @@ const Pricing = () => {
             gradient: 'from-blue-500 to-cyan-500'
         },
         {
-            name: 'Business Website / Full Stack Plan',
+            name: 'Business Plan',
+            site: 'Full Stack Site',
             price: '14,999',
             monthlyPrice: '1,999',
             icon: Database,
@@ -60,10 +62,6 @@ const Pricing = () => {
             price: '5,000'
         },
         {
-            name: 'Order Tracking',
-            price: '2,000'
-        },
-        {
             name: 'Advanced Analytics',
             price: '1,500'
         },
@@ -74,8 +72,8 @@ const Pricing = () => {
     ];
 
     const handleSelectPlan = (plan) => {
-        const chosenPrice = planPriceSelection[plan.name] || plan.price_1;
-        const chosenMonthly = planMonthlySelection[plan.name] || plan.monthlyPrice_1;
+        const chosenPrice = planPriceSelection[plan.name] || plan.price;
+        const chosenMonthly = planMonthlySelection[plan.name] || plan.monthlyPrice;
 
         setSelectedPlan(plan);
         setSelectedPlanPrice(chosenPrice);
@@ -93,15 +91,15 @@ const Pricing = () => {
     const toggleAddOn = (addOn) => {
         if (!selectedPlan) return;
 
-        const isFullStack = selectedPlan.name.includes("Full Stack");
+        const isBusiness = selectedPlan.name.includes("Business Plan");
 
         // block restricted add-ons
         const index = addOns.findIndex(a => a.name === addOn.name);
-        if (!isFullStack && index < 3) return;
+        if (!isBusiness && index < 3) return;
 
         setSelectedAddOns((prev) => {
             const exists = prev.find(item => item.name === addOn.name);
-            const selectedPrice = addOnPriceSelection[addOn.name] || addOn.price_1;
+            const selectedPrice = addOnPriceSelection[addOn.name] || addOn.price;
             const quantity = addOnQuantitySelection[addOn.name] || 1;
 
             if (exists) {
@@ -152,71 +150,90 @@ const Pricing = () => {
                 </script>
             </Helmet>
 
-            <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h1>
-                        <p className="text-slate-600 max-w-2xl mx-auto">
-                            Monthly rental model with no hidden costs. Cancel anytime.
+            <section className="relative overflow-hidden py-24 bg-slate-950 text-slate-100 border-b border-slate-800">
+                <div className="absolute inset-0 pointer-events-none opacity-50">
+                    <div className="absolute top-8 left-1/4 w-52 h-52 rounded-full bg-cyan-500/15 blur-3xl" />
+                    <div className="absolute top-28 right-10 w-72 h-72 rounded-full bg-violet-500/15 blur-3xl" />
+                    <div className="absolute bottom-14 left-1/3 w-64 h-64 rounded-full bg-pink-500/10 blur-3xl" />
+                </div>
+
+                <div className="relative container mx-auto px-4">
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <span className="inline-flex items-center rounded-full bg-slate-900/70 text-cyan-300 px-4 py-2 text-sm font-semibold mb-4">
+                            Rental Website Model
+                        </span>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                            Rent a Website, Grow Your Store
+                        </h1>
+                        <p className="text-slate-300 text-lg">
+                            Choose a monthly rental plan that includes design, hosting, maintenance, and support. No large upfront investment required.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                         {plans.map((plan, index) => {
                             const Icon = plan.icon;
-                            const chosenPriceForPlan = planPriceSelection[plan.name] || plan.price_1;
                             return (
                                 <div
                                     key={index}
-                                    className={`bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all ${plan.popular ? 'ring-4 ring-purple-500 ring-opacity-50' : ''
-                                        }`}
+                                    className={`glass-card overflow-hidden transform hover:-translate-y-1 transition-all ${plan.popular ? 'border-2 border-violet-500 shadow-2xl' : ''}`}
                                 >
-                                    {plan.popular && (
-                                        <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-2 text-sm font-semibold">
-                                            MOST POPULAR
-                                        </div>
-                                    )}
-
-                                    <div className="p-8">
-                                        <div className={`w-16 h-16 bg-gradient-to-br ${plan.gradient} rounded-xl flex items-center justify-center mb-4`}>
-                                            <Icon className="w-8 h-8 text-white" />
-                                        </div>
-
-                                        <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                                        <p className="text-slate-600 mb-4">{plan.description}</p>
-
-                                        <div className="flex items-baseline mb-6">
-                                            <span className="text-4xl font-bold">
-                                                ₹{plan.price}
-                                            </span>
-                                            <span className="text-slate-600 ml-2"> one time</span>
+                                    <div className="p-8 bg-slate-900/75">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className={`w-14 h-14 bg-linear-to-br ${plan.gradient} rounded-2xl flex items-center justify-center text-white`}>
+                                                    <Icon className="w-7 h-7" />
+                                                </div>
+                                                <div>
+                                                    <p className="text-sm uppercase tracking-[0.24em] text-slate-500 mb-1">{plan.site}</p>
+                                                    <h2 className="text-2xl font-bold">{plan.name}</h2>
+                                                </div>
+                                            </div>
+                                            {plan.popular && <span className="rounded-full bg-violet-600 text-white text-xs font-semibold px-3 py-1">Best Seller</span>}
                                         </div>
 
-                                        <div className="flex items-baseline mb-6">
-                                            <span className="text-2xl font-bold">₹{plan.monthlyPrice}</span>
-                                            <span className="text-slate-600 ml-2">/month</span>
+                                        <p className="text-slate-300 mb-8">{plan.description}</p>
+
+                                        <div className="mb-6">
+                                            <div className="flex items-end gap-3">
+                                                <span className="text-5xl font-bold text-white">₹{plan.monthlyPrice}</span>
+                                                <span className="text-slate-400">/month</span>
+                                            </div>
+                                            <p className="text-sm text-slate-400 mt-2">One-time setup: ₹{plan.price}</p>
                                         </div>
 
-                                        <div className="bg-slate-50 rounded-lg p-3 mb-6">
-                                            <p className="text-sm text-slate-600">
-                                                <span className="font-semibold">Tech Stack:</span> {plan.techStack}
+                                        <div className="bg-slate-900/70 rounded-3xl p-4 mb-6">
+                                            <p className="text-sm text-slate-300">
+                                                <span className="font-semibold text-white">Tech Stack:</span> {plan.techStack}
                                             </p>
                                         </div>
 
-                                        <ul className="space-y-3 mb-4">
+                                        <ul className="space-y-3 mb-6">
                                             {plan.features.map((feature, idx) => (
                                                 <li key={idx} className="flex items-start gap-3">
-                                                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-slate-700">{feature}</span>
+                                                    <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-1" />
+                                                    <span className="text-slate-300">{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
 
                                         <Button
                                             onClick={() => handleSelectPlan(plan)}
-                                            className={`block text-center px-6 py-3 rounded-lg font-semibold`}
+                                            variant="contained"
+                                            disableElevation
+                                            className="w-full px-6 py-3 rounded-2xl font-semibold text-white transition-all"
+                                            sx={{
+                                                background: 'linear-gradient(90deg, #2563eb 0%, #7c3aed 100%)',
+                                                color: '#ffffff',
+                                                textTransform: 'none',
+                                                boxShadow: '0 18px 30px rgba(99, 102, 241, 0.18)',
+                                                '&:hover': {
+                                                    opacity: 0.95,
+                                                    background: 'linear-gradient(90deg, #2563eb 0%, #7c3aed 100%)',
+                                                },
+                                            }}
                                         >
-                                            Select Plan
+                                            Rent This Plan
                                         </Button>
                                     </div>
                                 </div>
@@ -224,10 +241,25 @@ const Pricing = () => {
                         })}
                     </div>
 
+                    <div className="mt-16 grid gap-6 md:grid-cols-3 max-w-5xl mx-auto text-center">
+                        <div className="glass-card p-6">
+                            <h3 className="text-xl font-semibold mb-2 text-white">Hosting Included</h3>
+                            <p className="text-slate-300">We include secure hosting and backups as part of every rental plan.</p>
+                        </div>
+                        <div className="glass-card p-6">
+                            <h3 className="text-xl font-semibold mb-2 text-white">Flexible Upgrades</h3>
+                            <p className="text-slate-300">Move from basic to full-stack when your business needs more features.</p>
+                        </div>
+                        <div className="glass-card p-6">
+                            <h3 className="text-xl font-semibold mb-2 text-white">Ongoing Support</h3>
+                            <p className="text-slate-300">Maintenance, updates, and website changes are handled for you.</p>
+                        </div>
+                    </div>
+
                     <AddOns
                         addOns={addOns}
                         selectedPlan={selectedPlan}
-                        isFullStack={isFullStack}
+                        isBusiness={isBusiness}
                         selectedAddOns={selectedAddOns}
                         addOnPriceSelection={addOnPriceSelection}
                         addOnQuantitySelection={addOnQuantitySelection}
@@ -247,9 +279,9 @@ const Pricing = () => {
                     )}
 
                     <div className="mt-12 text-center">
-                        <p className="text-slate-600 max-w-2xl mx-auto">
-                            * All prices are monthly rentals. Setup happens within 3-5 business days.
-                            <span className="font-semibold"> We maintain and host your website, you just provide content updates.</span>
+                        <p className="text-slate-400 max-w-2xl mx-auto">
+                            * All prices are monthly rentals. Setup happens within 3-5 business weeks.
+                            <span className="font-semibold text-slate-100"> We maintain and host your website, you just provide content updates.</span>
                         </p>
                     </div>
                 </div>

@@ -7,8 +7,8 @@ const Contact = () => {
 
     const selectedPlan = location.state?.selectedPlan;
     const selectedAddOns = location.state?.selectedAddOns || [];
-    const selectedPlanPrice = selectedPlan?.selectedPrice || selectedPlan?.price_1;
-    const selectedMonthlyPrice = selectedPlan?.selectedMonthlyPrice || selectedPlan?.monthlyPrice_1;
+    const selectedPlanPrice = selectedPlan?.selectedPrice || selectedPlan?.price;
+    const selectedMonthlyPrice = selectedPlan?.selectedMonthlyPrice || selectedPlan?.monthlyPrice;
     const selectedAddOnsLabel = selectedAddOns.length
         ? selectedAddOns.map(a => a.quantity > 1 ? `${a.name} x${a.quantity}` : a.name).join(', ')
         : 'None';
@@ -30,7 +30,7 @@ const Contact = () => {
         const addOnsText = selectedAddOns.length
             ? selectedAddOns.map(a => {
                 const qty = a.quantity || 1;
-                const price = a.selectedPrice || a.price_1;
+                const price = a.selectedPrice || a.price;
                 const line = qty > 1
                     ? `- ${a.name} x${qty} (₹${price} each, ₹${parseInt(price.replace(",", "")) * qty})`
                     : `- ${a.name} (₹${price})`;
@@ -86,58 +86,57 @@ ${message}`
 `}
                 </script>
             </Helmet>
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-slate-950 text-slate-100 border-b border-slate-800">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-4">Get Your Website Today</h1>
-                        <p className="text-slate-600 max-w-2xl mx-auto">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Get Your Website Today</h1>
+                        <p className="text-slate-300 max-w-2xl mx-auto">
                             Ready to take your business online? Let's discuss your needs and get started!
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                        {/* Contact Info */}
                         <div className="space-y-8">
                             <div>
-                                <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+                                <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-linear-to-br from-cyan-500 to-violet-600 shadow-lg shadow-cyan-500/20">
                                             <Mail className="w-6 h-6 text-white" />
                                         </div>
                                         <div>
-                                            <p className="font-semibold mb-1">Email</p>
-                                            <a href="mailto:webshopagency04@gmail.com" className="text-slate-600 hover:text-blue-600">
+                                            <p className="font-semibold mb-1 text-slate-100">Email</p>
+                                            <a href="mailto:webshopagency04@gmail.com" className="text-cyan-300 hover:text-cyan-100">
                                                 webshopagency04@gmail.com
                                             </a>
                                         </div>
                                     </div>
 
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-linear-to-br from-cyan-500 to-violet-600 shadow-lg shadow-cyan-500/20">
                                             <Phone className="w-6 h-6 text-white" />
                                         </div>
                                         <div>
-                                            <p className="font-semibold mb-1">Phone</p>
-                                            <p className="text-slate-600">+91 8354878525</p>
+                                            <p className="font-semibold mb-1 text-slate-100">Phone</p>
+                                            <p className="text-slate-300">+91 8354878525</p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-linear-to-br from-cyan-500 to-violet-600 shadow-lg shadow-cyan-500/20">
                                             <MapPin className="w-6 h-6 text-white" />
                                         </div>
                                         <div>
-                                            <p className="font-semibold mb-1">Location</p>
-                                            <p className="text-slate-600">Serving local businesses across India</p>
+                                            <p className="font-semibold mb-1 text-slate-100">Location</p>
+                                            <p className="text-slate-300">Serving local businesses across India</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl">
-                                <h4 className="font-semibold mb-3">What to prepare:</h4>
-                                <ul className="space-y-2 text-slate-700">
+                            <div className="glass-card p-6 rounded-3xl border border-slate-800">
+                                <h4 className="font-semibold mb-3 text-white">What to prepare:</h4>
+                                <ul className="space-y-2 text-slate-300">
                                     <li>• List of products/services you offer</li>
                                     <li>• Your business logo (if available)</li>
                                     <li>• Product photos</li>
@@ -146,60 +145,59 @@ ${message}`
                             </div>
                         </div>
 
-                        {/* Contact Form */}
-                        <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl shadow-xl">
-                            <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
+                        <div className="glass-card p-8 rounded-3xl border border-slate-800 shadow-2xl shadow-slate-950/40">
+                            <h3 className="text-2xl font-bold mb-6 text-white">Send us a Message</h3>
                             <form className="space-y-4" onSubmit={handleSubmit}>
                                 <div>
-                                    <label className="block text-slate-700 mb-2">Your Name</label>
+                                    <label className="block text-slate-200 mb-2">Your Name</label>
                                     <input
                                         type="text"
                                         name="name"
                                         placeholder="Enter your name"
                                         required
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-3 bg-slate-950 text-slate-100 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-slate-700 mb-2">Business Name</label>
+                                    <label className="block text-slate-200 mb-2">Business Name</label>
                                     <input
                                         type="text"
                                         name="businessName"
                                         placeholder="Your shop/business name"
                                         required
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-3 bg-slate-950 text-slate-100 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-slate-700 mb-2">Email</label>
+                                    <label className="block text-slate-200 mb-2">Email</label>
                                     <input
                                         type="email"
                                         name="email"
                                         placeholder="your.email@example.com"
                                         required
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-3 bg-slate-950 text-slate-100 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-slate-700 mb-2">Phone</label>
+                                    <label className="block text-slate-200 mb-2">Phone</label>
                                     <input
                                         type="tel"
                                         name="phone"
                                         placeholder="+91 98765 43210"
                                         required
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-3 bg-slate-950 text-slate-100 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-slate-700 mb-2">Website Type</label>
+                                    <label className="block text-slate-200 mb-2">Website Type</label>
                                     <select
                                         name="websiteType"
                                         defaultValue={selectedPlan?.name || "Not sure yet"}
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg"
+                                        className="w-full px-4 py-3 bg-slate-950 text-slate-100 border border-slate-700 rounded-lg"
                                     >
                                         <option>Basic Website Plan</option>
                                         <option>Business Website / Full Stack Plan</option>
@@ -208,30 +206,30 @@ ${message}`
                                 </div>
 
                                 <div>
-                                    <label className="block text-slate-700 mb-2">Add-ons</label>
+                                    <label className="block text-slate-200 mb-2">Add-ons</label>
                                     <input
                                         type="text"
                                         name="addOns"
                                         readOnly
                                         value={selectedAddOnsLabel}
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg"
+                                        className="w-full px-4 py-3 bg-slate-950 text-slate-100 border border-slate-700 rounded-lg"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-slate-700 mb-2">Tell us about your business</label>
+                                    <label className="block text-slate-200 mb-2">Tell us about your business</label>
                                     <textarea
                                         rows={4}
                                         name="message"
                                         placeholder="What do you sell? What makes your business special?"
                                         required
-                                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-3 bg-slate-950 text-slate-100 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                                     ></textarea>
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                                    className="w-full btn-accent px-6 py-4 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
                                 >
                                     <Send className="w-5 h-5" />
                                     Send Message

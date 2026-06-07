@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen bg-slate-950 text-slate-100">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,7 +27,7 @@ function App() {
           <p className="text-slate-500 mt-2 text-sm">Building digital presence for local businesses</p>
         </div>
       </footer>
-    </>
+    </div>
   )
 }
 

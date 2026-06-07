@@ -42,15 +42,15 @@ const Feature = () => {
                 />
             </Helmet>
 
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-slate-950 text-slate-100 border-b border-slate-800">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            Why Choose WebShop Agency
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                            Why Rent Your Website With WebShop Agency
                         </h1>
 
-                        <p className="text-slate-600 max-w-2xl mx-auto">
-                            We make having a professional online presence simple and affordable for local businesses
+                        <p className="text-slate-300 max-w-2xl mx-auto">
+                            Affordable monthly website rental for local stores, with design, hosting, and ongoing maintenance included.
                         </p>
                     </div>
 
@@ -61,17 +61,17 @@ const Feature = () => {
                             return (
                                 <div
                                     key={index}
-                                    className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-xl transition-all transform hover:-translate-y-1"
+                                    className="glass-card p-6 rounded-3xl hover:-translate-y-1 hover:shadow-2xl transition-all"
                                 >
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                                    <div className="w-14 h-14 bg-linear-to-br from-cyan-500 to-violet-600 rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/20">
                                         <Icon className="w-6 h-6 text-white" />
                                     </div>
 
-                                    <h3 className="text-xl font-semibold mb-2">
+                                    <h3 className="text-xl font-semibold mb-2 text-white">
                                         {feature.title}
                                     </h3>
 
-                                    <p className="text-slate-600">
+                                    <p className="text-slate-300">
                                         {feature.description}
                                     </p>
                                 </div>

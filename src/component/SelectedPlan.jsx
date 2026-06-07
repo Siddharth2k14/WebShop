@@ -23,23 +23,23 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
     };
 
     return (
-        <div className="mt-16 max-w-3xl mx-auto bg-white shadow-xl rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-4">Your Selection</h2>
+        <div className="mt-16 max-w-3xl mx-auto glass-card rounded-2xl p-8 border border-slate-800 shadow-2xl shadow-slate-950/40">
+            <h2 className="text-2xl font-bold mb-4 text-white">Your Selection</h2>
 
-            <p className="mb-2">
-                <strong>Plan:</strong> {selectedPlan.name}
+            <p className="mb-2 text-slate-300">
+                <strong className="text-white">Plan:</strong> {selectedPlan.name}
             </p>
 
-            <p className="mb-2">
-                <strong>Base Price:</strong> ₹{effectivePrice}
+            <p className="mb-2 text-slate-300">
+                <strong className="text-white">Base Price:</strong> ₹{effectivePrice}
             </p>
 
-            <p className="mb-2">
-                <strong>Monthly Price:</strong> ₹{effectiveMonthlyPrice}
+            <p className="mb-2 text-slate-300">
+                <strong className="text-white">Monthly Price:</strong> ₹{effectiveMonthlyPrice}
             </p>
 
-            <div className="mb-4">
-                <strong>Add-ons:</strong>
+            <div className="mb-4 text-slate-300">
+                <strong className="text-white">Add-ons:</strong>
                 <ul className="list-disc ml-6 mt-2">
                     {selectedAddOns.length === 0 && <li>No add-ons selected</li>}
                     {selectedAddOns.map((item, i) => (
@@ -52,7 +52,7 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
                 </ul>
             </div>
 
-            <h3 className="text-xl font-bold text-green-600">
+            <h3 className="text-xl font-bold text-cyan-300 mb-6">
                 Total: ₹{getTotalPrice()}
             </h3>
 
@@ -69,14 +69,14 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
                     },
                     selectedAddOns: selectedAddOns.map((addOn) => ({
                         name: addOn.name,
-                        price_1: addOn.price,
+                        price: addOn.price,
                         selectedPrice: addOn.selectedPrice || addOn.price,
                         quantity: addOn.quantity || 1
                     }))
                 }}
                 className={`block text-center px-6 py-3 rounded-lg font-semibold transition-all ${selectedPlan?.popular
-                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                        : 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white'
+                        ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white'
+                        : 'bg-linear-to-r from-blue-600 to-cyan-600 text-white'
                     }`}>
 
                 Get Started
@@ -86,3 +86,4 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
 }
 
 export default SelectedPlan
+
