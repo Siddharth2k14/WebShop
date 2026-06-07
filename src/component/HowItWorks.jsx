@@ -94,6 +94,38 @@ const HowItWorks = () => {
                             <p>
                                 <span className="font-semibold text-blue-600">✓ Flexible:</span> Upgrade to full-stack when you need it, cancel anytime with notice.
                             </p>
+                            <p>
+                                <span className="font-semibold text-blue-600">✓ Workflow:</span> Customer will come and scan the QR code, open the website directly.
+                            </p>
+                        </div>
+                        <div className="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+
+                            <h4 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+                                Customers Can Check
+                            </h4>
+
+                            <div className="grid sm:grid-cols-2 gap-4 text-slate-700">
+
+                                <div className="bg-white rounded-xl p-4 shadow-sm flex items-center justify-center text-center">
+                                    ✓ Product availability
+                                </div>
+
+                                <div className="bg-white rounded-xl p-4 shadow-sm flex items-center justify-center text-center">
+                                    ✓ Prices
+                                </div>
+
+                                <div className="bg-white rounded-xl p-4 shadow-sm flex items-center justify-center text-center">
+                                    ✓ New arrivals
+                                </div>
+
+                                <div className="bg-white rounded-xl p-4 shadow-sm flex items-center justify-center text-center">
+                                    ✓ Shop timings
+                                </div>
+
+                                <div className="bg-white rounded-xl p-4 shadow-sm flex items-center justify-center text-center">
+                                    ✓ Contact details
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
