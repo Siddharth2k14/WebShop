@@ -71,7 +71,7 @@ const SelectedPlan = ({ selectedPlan, selectedPlanPrice, selectedMonthlyPrice, s
                         name: addOn.name,
                         price: addOn.price,
                         selectedPrice: addOn.selectedPrice || addOn.price,
-                        quantity: addOn.quantity || 1
+                        quantity: addOn.quantity
                     }))
                 }}
                 className={`block text-center px-6 py-3 rounded-lg font-semibold transition-all ${selectedPlan?.popular

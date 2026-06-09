@@ -8,27 +8,33 @@ const AddOns = ({ addOns, selectedPlan, isBusiness, selectedAddOns, addOnPriceSe
             </h2>
 
             <p className="text-xl text-center font-bold mb-4 text-slate-300">
-                First 2 add-ons are only available for Business Plan
+                First 2 are only for Business Plan.
             </p>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {addOns.map((addOn, index) => {
+                    const restrictedAddOnNames = ['Inventory System (setup)', 'Advanced Analytics'];
+                    const isRestricted = restrictedAddOnNames.includes(addOn.name);
                     const isDisabled =
                         !selectedPlan ||
-                        (!isBusiness && index < 2); // restrict first 3 add-ons
+                        (!isBusiness && isRestricted); // only Extra Pages is available for Basic Plan
+                    const isSelected = selectedAddOns.some(a => a.name === addOn.name);
 
                     return (
                         <div
                             key={index}
                             className={`rounded-xl p-5 border border-slate-800 transition ${isDisabled ? "opacity-50 cursor-not-allowed bg-slate-900/60" : "bg-slate-900/70 hover:shadow-2xl"}`}
                         >
-                            <label className="flex items-start gap-3 cursor-pointer">
+                            <div className="flex items-start gap-3 cursor-pointer">
 
                                 <input
                                     type="checkbox"
                                     disabled={isDisabled}
-                                    onChange={() => toggleAddOn(addOn)}
-                                    checked={selectedAddOns.some(a => a.name === addOn.name)}
+                                    onChange={(e) => {
+                                        e.stopPropagation();
+                                        toggleAddOn(addOn);
+                                    }}
+                                    checked={isSelected}
                                     className="mt-1 rounded-sm text-cyan-500 focus:ring-cyan-500"
                                 />
 
@@ -44,15 +50,14 @@ const AddOns = ({ addOns, selectedPlan, isBusiness, selectedAddOns, addOnPriceSe
                                         }
                                     </p>
 
-                                    {addOn.name.toLowerCase().includes('extra page') && (
+                                    {addOn.name.toLowerCase().includes('extra page') && isSelected && (
                                         <div className="mt-2 flex items-center gap-2">
                                             <label className="text-sm text-slate-400">Pages:</label>
                                             <input
                                                 type="number"
-                                                min={1}
-                                                value={addOnQuantitySelection[addOn.name] || 1}
+                                                value={addOnQuantitySelection[addOn.name]}
                                                 onChange={(e) => {
-                                                    const qty = Math.max(1, Number(e.target.value));
+                                                    const qty = Number(e.target.value);
                                                     setAddOnQuantitySelection((prev) => ({ ...prev, [addOn.name]: qty }));
                                                     setSelectedAddOns((prev) => prev.map(item => item.name === addOn.name ? { ...item, quantity: qty } : item));
                                                 }}
@@ -71,11 +76,11 @@ const AddOns = ({ addOns, selectedPlan, isBusiness, selectedAddOns, addOnPriceSe
 
                                     {isDisabled && (
                                         <p className="text-xs text-rose-400 mt-1">
-                                            Select Full Stack Plan
+                                            Select Business Plan
                                         </p>
                                     )}
                                 </div>
-                            </label>
+                            </div>
                         </div>
                     );
                 })}

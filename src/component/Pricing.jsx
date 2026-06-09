@@ -71,6 +71,8 @@ const Pricing = () => {
         }
     ];
 
+    const restrictedAddOnNames = ['Inventory System (setup)', 'Advanced Analytics'];
+
     const handleSelectPlan = (plan) => {
         const chosenPrice = planPriceSelection[plan.name] || plan.price;
         const chosenMonthly = planMonthlySelection[plan.name] || plan.monthlyPrice;
@@ -92,15 +94,14 @@ const Pricing = () => {
         if (!selectedPlan) return;
 
         const isBusiness = selectedPlan.name.includes("Business Plan");
+        const isRestricted = restrictedAddOnNames.includes(addOn.name);
 
-        // block restricted add-ons
-        const index = addOns.findIndex(a => a.name === addOn.name);
-        if (!isBusiness && index < 3) return;
+        if (!isBusiness && isRestricted) return;
 
         setSelectedAddOns((prev) => {
             const exists = prev.find(item => item.name === addOn.name);
             const selectedPrice = addOnPriceSelection[addOn.name] || addOn.price;
-            const quantity = addOnQuantitySelection[addOn.name] || 1;
+            const quantity = addOnQuantitySelection[addOn.name] || 0;
 
             if (exists) {
                 return prev.filter(item => item.name !== addOn.name);

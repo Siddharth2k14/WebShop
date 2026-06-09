@@ -18,8 +18,19 @@ const NavBar = () => {
                     className="w-10 h-10 md:w-12 md:h-12 object-contain"
                 />
 
-                <Typography className="text-xl md:text-2xl font-semibold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    <NavLink to="/home">Web Shop Agency</NavLink>
+                <Typography
+                    component={NavLink}
+                    to="/home"
+                    sx={{
+                        fontSize: { xs: '1.5rem', md: '1.5rem' },
+                        fontWeight: 700,
+                        background: 'linear-gradient(90deg, #2563eb 0%, #7c3aed 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        textDecoration: 'none'
+                    }}
+                >
+                    WebShop Agency
                 </Typography>
             </Box>
 
@@ -48,6 +59,7 @@ const NavBar = () => {
             <IconButton
                 className="md:hidden"
                 onClick={() => setOpen(!open)}
+                sx={{ color: '#ffffff', display: { md: 'none' } }}
             >
                 {open ? <CloseIcon /> : <MenuIcon />}
             </IconButton>
