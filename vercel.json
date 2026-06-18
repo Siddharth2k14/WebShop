@@ -8,8 +8,7 @@
                     "value": "web-shop-olive.vercel.app"
                 }
             ],
-            "destination": "https://webshopagency.in/$1",
-            "permanent": true
+            "destination": "https://webshopagency.in/$1"
         }
     ],
     "headers": [
