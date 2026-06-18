@@ -1,16 +1,10 @@
 {
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "web-shop-olive.vercel.app"
-                }
-            ],
-            "destination": "https://webshopagency.in/$1"
-        }
-    ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
     "headers": [
         {
             "source": "/sitemap.xml",
