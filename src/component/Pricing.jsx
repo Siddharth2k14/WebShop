@@ -123,7 +123,7 @@ const Pricing = () => {
 
                 <link
                     rel="canonical"
-                    href="https://web-shop-olive.vercel.app/pricing"
+                    href="https://webshopagency.in/pricing"
                 />
 
                 <script type="application/ld+json">

@@ -66,7 +66,7 @@ const TechStack = () => {
 
                 <link
                     rel="canonical"
-                    href="https://web-shop-olive.vercel.app/techstack"
+                    href="https://webshopagency.in/techstack"
                 />
             </Helmet>
 

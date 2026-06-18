@@ -70,7 +70,7 @@ ${message}`
 
                 <link
                     rel="canonical"
-                    href="https://web-shop-olive.vercel.app/contact"
+                    href="https://webshopagency.in/contact"
                 />
 
                 <script type="application/ld+json">

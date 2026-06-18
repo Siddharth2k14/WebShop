@@ -15,7 +15,7 @@ const Home = () => {
                     content="Get a professional website for your shop with no upfront cost. WebShop Agency provides affordable website rental service with design, hosting, and maintenance included."
                 />
 
-                <link rel="canonical" href="https://web-shop-olive.vercel.app/" />
+                <link rel="canonical" href="https://webshopagency.in/" />
 
                 <meta property="og:title" content="WebShop Agency - Websites for Local Businesses" />
                 <meta property="og:description" content="Affordable website rental service for local businesses. No upfront cost, monthly plans, and full maintenance." />

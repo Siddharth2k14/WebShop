@@ -42,7 +42,7 @@ const HowItWorks = () => {
 
                 <link
                     rel="canonical"
-                    href="https://web-shop-olive.vercel.app/howitworks"
+                    href="https://webshopagency.in/howitworks"
                 />
             </Helmet>
 

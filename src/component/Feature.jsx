@@ -38,7 +38,7 @@ const Feature = () => {
 
                 <link
                     rel="canonical"
-                    href="https://web-shop-olive.vercel.app/feature"
+                    href="https://webshopagency.in/feature"
                 />
             </Helmet>
 
