@@ -1,9 +1,9 @@
 import Home from "./component/Home";
 import NavBar from "./component/NavBar";
-import Feature from "./component/Feature";
+// import Feature from "./component/Feature";
 import Pricing from "./component/Pricing";
 import TechStack from "./component/TechStack";
-import HowItWorks from "./component/HowItWorks";
+// import HowItWorks from "./component/HowItWorks";
 import Contact from "./component/Contact";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -14,10 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/feature" element={<Feature />} />
+        {/* <Route path="/feature" element={<Feature />} /> */}
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/techstack" element={<TechStack />} />
-        <Route path="/howitworks" element={<HowItWorks />} />
+        {/* <Route path="/howitworks" element={<HowItWorks />} /> */}
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
